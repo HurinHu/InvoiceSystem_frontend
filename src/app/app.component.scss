@@ -1,0 +1,101 @@
+#header {
+  height: 56px;
+  .userControl {
+    .user {
+      font-size: 1.6rem;
+      position: absolute;
+      top: 8px;
+      right: 25px;
+      cursor: pointer;
+      span {
+        position: relative;
+        top: -3px;
+        font-size: 1rem;
+        font-style: italic;
+        padding-left: 5px;
+      }
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 54px;
+      left: inherit;
+      right: -180px;
+      min-width: 6rem;
+      font-size: 1rem;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      transition: all 0.3s;
+      &.active {
+        right: 5px;
+      }
+    }
+  }
+}
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 99999;
+  transition: all 0.3s;
+  .sidebar-header{
+    box-shadow: -15px -10px 0.5rem 1rem rgba(0,0,0,0.15);
+    .brand {
+      color: rgba(0, 0, 0, 0.9);
+      padding: 0.25rem 0.75rem;
+      font-size: 1.4rem;
+      line-height: 56px;
+    }
+  }
+}
+.main {
+  position: relative;
+  top: 56px;
+  left: 250px;
+  min-height: calc(100vh - 56px);
+  width: calc(100% - 250px);
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  #header {
+    .navbar-toggler{
+      transition: all 0.3s;
+      font-size: 1rem;
+      padding: 0.25rem 0.35rem;
+      &.active {
+        margin-left: 180px;
+      }
+    }
+    .userControl {
+      .user {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+  #sidebar {
+    width: 180px;
+    left: -180px;
+    &.active {
+      left: 0;
+    }
+    .sidebar-header{
+      .brand {
+        padding: 0.25rem 0.75rem;
+        font-size: 1rem;
+        line-height: 56px;
+      }
+    }
+  }
+  .main {
+    left: 0px;
+    width: 100vw;
+    transition: all 0.3s;
+    &.active {
+      left: 180px;
+      width: calc(100% - 180px);
+    }
+  }
+}
